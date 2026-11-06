@@ -751,56 +751,49 @@ Semantix evaluates the actual semantics and side effects of each integration bef
 
 ## Quick Start
 
-> The following commands describe the planned development environment. They will become executable as the corresponding project components are implemented.
+Phase 0–3 MVP is runnable locally. Unit tests do not require Docker/Postgres (SQLite in-memory). Full Studio + API uses Postgres via Compose.
 
 ### Requirements
 
 - Python 3.12+
 - uv
 - Node.js 20+
-- PostgreSQL 15+
-- Docker and Docker Compose
+- Docker and Docker Compose (for Postgres metadata DB)
 
-### 1. Clone the Repository
+### 1. Clone / enter the repository
 
 ```bash
-git clone https://github.com/your-org/semantix.git
 cd semantix
 ```
 
-### 2. Setup Backend
+### 2. Backend dependencies
 
 ```bash
-uv sync
-```
-
-Create your environment configuration:
-
-```bash
+uv sync --group dev
 cp .env.example .env
 ```
 
-Configure PostgreSQL and model provider credentials in `.env`.
+Defaults in `.env.example` match Compose Postgres (`semantix`/`semantix` @ `localhost:5432`).
 
-### 3. Start Infrastructure
+### 3. Start Postgres
 
 ```bash
 docker compose -f deployments/docker-compose.yml up -d
 ```
 
-### 4. Run Database Migrations
+### 4. Migrate
 
 ```bash
 uv run alembic upgrade head
 ```
 
-### 5. Start API
+### 5. API
 
 ```bash
 uv run uvicorn apps.api.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 6. Start Studio
+### 6. Studio
 
 ```bash
 cd web
@@ -808,13 +801,24 @@ npm install
 npm run dev
 ```
 
-### 7. Access Semantix
+Vite proxies `/api` → `http://localhost:8000`.
+
+### 7. Access
 
 | Service | Address |
 |---|---|
 | Studio | http://localhost:5173 |
 | API | http://localhost:8000 |
 | API Docs | http://localhost:8000/docs |
+
+### 8. Verify
+
+```bash
+uv run pytest tests/unit -v
+uv run pytest tests/e2e -v
+```
+
+Demo prompts: [`docs/demo/mvp-scenarios.md`](docs/demo/mvp-scenarios.md).
 
 ---
 
@@ -824,12 +828,12 @@ Semantix will be developed incrementally.
 
 | Phase | Features | Status |
 |---|---|---|
-| Phase 0 | Project foundation, authentication, projects, metadata database | Planned |
-| Phase 1 | Data sources, schema discovery, MDL, semantic models | Planned |
-| Phase 2 | Wren Core, Vanna, Semantic Query, Text-to-SQL | Planned |
-| Phase 3 | Capability Registry, OpenAPI integration, read-only Functional Tools | Planned |
-| Phase 4 | MCP Server, MCP Client, external tool discovery | Planned |
-| Phase 5 | Agent orchestration, Pydantic AI integration, execution traces | Planned |
+| Phase 0 | Project foundation, authentication, projects, metadata database | Done (MVP) |
+| Phase 1 | Data sources, schema discovery, MDL, semantic models | Done (MVP) |
+| Phase 2 | Wren/Vanna adapters (fixture fallback), Semantic Query, ChatBI | Done (MVP) |
+| Phase 3 | Capability Registry, OpenAPI overlay, Functional Tools, thin hybrid planner | Done (MVP) |
+| Phase 4 | MCP Server, MCP Client, external tool discovery | Planned — see [`docs/superpowers/plans/phase4-7-stubs.md`](docs/superpowers/plans/phase4-7-stubs.md) |
+| Phase 5 | Agent Studio, Pydantic AI adapter, execution traces | Planned |
 | Phase 6 | Knowledge Center, semantic evolution, candidate review | Planned |
 | Phase 7 | Complete Studio, monitoring, governance, production deployment | Planned |
 
