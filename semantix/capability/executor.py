@@ -9,7 +9,6 @@ from semantix.capability.registry import CapabilityRegistry
 from semantix.core.errors import AppError
 from semantix.integrations.openapi.http_adapter import invoke_http
 from semantix.models.integration import Integration
-from semantix.query.chatbi import ChatBIService
 from semantix.security.crypto import decrypt_secret
 
 
@@ -34,6 +33,8 @@ class CapabilityExecutor:
 
         config = json.loads(cap.config_json or "{}")
         if cap.kind == "semantic_data":
+            from semantix.query.chatbi import ChatBIService
+
             question = str(input_data.get("question") or "")
             if not question:
                 raise AppError("invalid_input", "question is required", status_code=400)
