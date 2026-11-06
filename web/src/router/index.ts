@@ -21,10 +21,21 @@ const router = createRouter({
           component: () => import('@/views/dashboard/DashboardView.vue'),
         },
         {
+          path: 'datasources',
+          name: 'datasources',
+          component: () => import('@/views/datasources/DataSourceListView.vue'),
+        },
+        {
+          path: 'datasources/:id/schema',
+          name: 'datasource-schema',
+          component: () => import('@/views/datasources/SchemaExplorerView.vue'),
+        },
+        {
           path: 'coming-soon/:module',
           name: 'coming-soon',
           component: () => import('@/views/ComingSoonView.vue'),
         },
+
       ],
     },
   ],

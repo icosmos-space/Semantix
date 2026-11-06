@@ -4,7 +4,7 @@
       <div class="brand">Semantix</div>
       <el-menu :default-active="active" router>
         <el-menu-item index="/dashboard">工作台</el-menu-item>
-        <el-menu-item index="/coming-soon/datasources">数据源</el-menu-item>
+        <el-menu-item index="/datasources">数据源</el-menu-item>
         <el-menu-item index="/coming-soon/semantic">语义中心</el-menu-item>
         <el-menu-item index="/coming-soon/capabilities">能力中心</el-menu-item>
         <el-menu-item index="/coming-soon/integrations">系统集成</el-menu-item>
