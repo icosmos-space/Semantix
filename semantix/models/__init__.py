@@ -1,5 +1,6 @@
 from semantix.models.audit import QueryRun
 from semantix.models.base import Base
+from semantix.models.capability import Capability
 from semantix.models.chat import ChatMessage, ChatSession
 from semantix.models.datasource import DataSource
 from semantix.models.project import Membership, Project
@@ -19,4 +20,5 @@ __all__ = [
     "QueryRun",
     "ChatSession",
     "ChatMessage",
+    "Capability",
 ]

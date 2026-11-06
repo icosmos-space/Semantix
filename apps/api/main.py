@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from apps.api.routes import auth, chatbi, datasources, projects, query, semantic
+from apps.api.routes import auth, capabilities, chatbi, datasources, projects, query, semantic
 from semantix.core.config import get_settings
 from semantix.core.errors import register_exception_handlers
 
@@ -22,6 +22,8 @@ app.include_router(datasources.router, prefix="/api/v1")
 app.include_router(semantic.router, prefix="/api/v1")
 app.include_router(query.router, prefix="/api/v1")
 app.include_router(chatbi.router, prefix="/api/v1")
+app.include_router(capabilities.router, prefix="/api/v1")
+
 
 
 

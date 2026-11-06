@@ -14,3 +14,11 @@ Task 3: complete (26381d2 studio shell)
 
 Task 4: complete (datasources + schema explorer)
 
+Task 5: complete (semantic/MDL)
+
+Task 6: complete
+
+Task 7: complete
+
+Task 8: complete (ChatBI + GPT-Vis)
+

@@ -41,10 +41,16 @@ const router = createRouter({
           component: () => import('@/views/chatbi/ChatBIView.vue'),
         },
         {
+          path: 'capabilities',
+          name: 'capabilities',
+          component: () => import('@/views/capabilities/CapabilityCenterView.vue'),
+        },
+        {
           path: 'coming-soon/:module',
           name: 'coming-soon',
           component: () => import('@/views/ComingSoonView.vue'),
         },
+
 
 
 
