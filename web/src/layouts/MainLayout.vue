@@ -7,7 +7,7 @@
         <el-menu-item index="/datasources">数据源</el-menu-item>
         <el-menu-item index="/semantic">语义中心</el-menu-item>
         <el-menu-item index="/capabilities">能力中心</el-menu-item>
-        <el-menu-item index="/coming-soon/integrations">系统集成</el-menu-item>
+        <el-menu-item index="/integrations">系统集成</el-menu-item>
         <el-menu-item index="/chatbi">ChatBI</el-menu-item>
         <el-menu-item index="/coming-soon/settings">系统设置</el-menu-item>
       </el-menu>

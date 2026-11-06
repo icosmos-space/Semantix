@@ -46,14 +46,15 @@ const router = createRouter({
           component: () => import('@/views/capabilities/CapabilityCenterView.vue'),
         },
         {
+          path: 'integrations',
+          name: 'integrations',
+          component: () => import('@/views/integrations/IntegrationsView.vue'),
+        },
+        {
           path: 'coming-soon/:module',
           name: 'coming-soon',
           component: () => import('@/views/ComingSoonView.vue'),
         },
-
-
-
-
       ],
     },
   ],
