@@ -31,10 +31,16 @@ const router = createRouter({
           component: () => import('@/views/datasources/SchemaExplorerView.vue'),
         },
         {
+          path: 'semantic',
+          name: 'semantic',
+          component: () => import('@/views/semantic/SemanticStudioView.vue'),
+        },
+        {
           path: 'coming-soon/:module',
           name: 'coming-soon',
           component: () => import('@/views/ComingSoonView.vue'),
         },
+
 
       ],
     },

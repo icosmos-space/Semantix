@@ -1,0 +1,15 @@
+models:
+  - name: devices
+    table: devices
+    columns:
+      - name: device_id
+        type: string
+      - name: project_id
+        type: string
+      - name: is_online
+        type: boolean
+metrics:
+  - name: device_online_rate
+    model: devices
+    expression: "SUM(CASE WHEN is_online THEN 1 ELSE 0 END)::float / NULLIF(COUNT(*),0)"
+    dimensions: [project_id]
