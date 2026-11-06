@@ -1,3 +1,4 @@
+from semantix.models.audit import QueryRun
 from semantix.models.base import Base
 from semantix.models.datasource import DataSource
 from semantix.models.project import Membership, Project
@@ -14,4 +15,5 @@ __all__ = [
     "Metric",
     "GlossaryTerm",
     "MdlRevision",
+    "QueryRun",
 ]
