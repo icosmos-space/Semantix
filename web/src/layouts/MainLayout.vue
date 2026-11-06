@@ -8,7 +8,7 @@
         <el-menu-item index="/semantic">语义中心</el-menu-item>
         <el-menu-item index="/coming-soon/capabilities">能力中心</el-menu-item>
         <el-menu-item index="/coming-soon/integrations">系统集成</el-menu-item>
-        <el-menu-item index="/coming-soon/chatbi">ChatBI</el-menu-item>
+        <el-menu-item index="/chatbi">ChatBI</el-menu-item>
         <el-menu-item index="/coming-soon/settings">系统设置</el-menu-item>
       </el-menu>
     </el-aside>
