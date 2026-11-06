@@ -1,0 +1,21 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from semantix.core.config import get_settings
+from semantix.core.errors import register_exception_handlers
+
+settings = get_settings()
+app = FastAPI(title=settings.app_name)
+register_exception_handlers(app)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[o.strip() for o in settings.cors_origins.split(",") if o.strip()],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/api/v1/health")
+async def health():
+    return {"status": "ok"}
