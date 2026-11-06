@@ -1,4 +1,8 @@
-# Semantix
+# Semantix 
+
+<p align="center">
+<img src="https://img.shields.io/badge/STATUS-WIP-red?style=for-the-badge" alt="WIP" />
+</p>
 
 <p align="center">
   <strong>Semantic Intelligence Platform</strong>
